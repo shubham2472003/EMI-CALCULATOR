@@ -1,0 +1,182 @@
+:root {
+  --bg-color: linear-gradient(to right, #74ebd5, #acb6e5);
+  --card-bg: #ffffffcc;
+  --text-color: #222;
+}
+
+body.dark {
+  --bg-color: #111;
+  --card-bg: #222;
+  --text-color: #eee;
+  background: #111 !important;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--bg-color);
+  transition: background 0.5s ease;
+  color: var(--text-color);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Controls */
+.controls {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+
+.controls button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #333;
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Calculator */
+.calculator {
+  position: relative;
+  z-index: 2;
+  width: 340px;
+  background: var(--card-bg);
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  color: var(--text-color);
+  transition: background 0.5s ease, color 0.5s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.calculator img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.calculator h2 {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Chart */
+#emiChart {
+  margin-top: 20px;
+}
+
+/* Typing effect */
+#typed-text::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+  color: #555;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Flashing Shubham */
+.shubham-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.flash-text {
+  position: fixed;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff4081;
+  animation: flashShubham 1s ease-out forwards;
+  pointer-events: none;
+  z-index: 0;
+  text-shadow: 2px 2px 8px #00000088;
+}
+
+@keyframes flashShubham {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+}
